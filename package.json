@@ -1,0 +1,16 @@
+{
+  "name": "travlr-site",
+  "version": "1.0.0",
+  "description": "Module One Express app for serving the Travlr static website.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
