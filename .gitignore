@@ -1,6 +1,2 @@
 node_modules/
-dist/
-coverage/
-.angular/
-.env
-server/public/
+.npm-cache/
