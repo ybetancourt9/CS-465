@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Gale Reef",
+    "image": "reef1.jpg",
+    "description": "Gale Reef is a calm, colorful stop with easy access for travelers who want a relaxed start to their coastal adventure.",
+    "body": "Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem ullamcorper vitae laoreet."
+  },
+  {
+    "name": "Dawson's Reef",
+    "image": "reef2.jpg",
+    "description": "Dawson's Reef gives guests a more dramatic view of the water with reef formations that make the trip feel more adventurous.",
+    "body": "Vulputate at est. Morbi aliquet viverra metus eu consectetur. In lorem dui, elementum sit amet convallis ac, tincidunt vel sapien."
+  },
+  {
+    "name": "Claire's Reef",
+    "image": "reef3.jpg",
+    "description": "Claire's Reef highlights bright water, active marine life, and a scenic route that works well for repeat visitors.",
+    "body": "Vulputate eget libero. In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis."
+  }
+]

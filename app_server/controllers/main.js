@@ -1,3 +1,8 @@
+const fs = require("fs")
+const path = require("path")
+
+const tripsPath = path.join(__dirname, "..", "..", "data", "trips.json")
+
 const renderPage = (res, viewName, options = {}) => {
   res.render(viewName, options)
 }
@@ -10,9 +15,12 @@ module.exports.home = (_req, res) => {
 }
 
 module.exports.travel = (_req, res) => {
+  const trips = JSON.parse(fs.readFileSync(tripsPath, "utf8"))
+
   renderPage(res, "travel", {
     title: "Travel - Travlr Getaways Website Template",
-    currentPage: "travel"
+    currentPage: "travel",
+    trips
   })
 }
 
