@@ -1,6 +1,7 @@
 const express = require("express")
 const hbs = require("hbs")
 const path = require("path")
+require("./app_server/models/db")
 const mainRouter = require("./app_server/routes/index")
 
 const app = express()

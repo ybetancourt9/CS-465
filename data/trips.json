@@ -1,20 +1,35 @@
 [
   {
+    "code": "GALE2026",
     "name": "Gale Reef",
+    "length": "4 nights",
+    "start": "2026-06-15T00:00:00.000Z",
+    "resort": "Travlr Getaways Reef Resort",
+    "perPerson": "799",
     "image": "reef1.jpg",
-    "description": "Gale Reef is a calm, colorful stop with easy access for travelers who want a relaxed start to their coastal adventure.",
+    "description": "Gale Reef is a calm, colorful stop with easy access for travelers who want a relaxed start to their coastal adventure. Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem ullamcorper vitae laoreet.",
     "body": "Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem ullamcorper vitae laoreet."
   },
   {
+    "code": "DAWS2026",
     "name": "Dawson's Reef",
+    "length": "6 nights",
+    "start": "2026-07-06T00:00:00.000Z",
+    "resort": "Travlr Getaways Ocean Resort",
+    "perPerson": "999",
     "image": "reef2.jpg",
-    "description": "Dawson's Reef gives guests a more dramatic view of the water with reef formations that make the trip feel more adventurous.",
+    "description": "Dawson's Reef gives guests a more dramatic view of the water with reef formations that make the trip feel more adventurous. Vulputate at est. Morbi aliquet viverra metus eu consectetur. In lorem dui, elementum sit amet convallis ac, tincidunt vel sapien.",
     "body": "Vulputate at est. Morbi aliquet viverra metus eu consectetur. In lorem dui, elementum sit amet convallis ac, tincidunt vel sapien."
   },
   {
+    "code": "CLAI2026",
     "name": "Claire's Reef",
+    "length": "5 nights",
+    "start": "2026-08-10T00:00:00.000Z",
+    "resort": "Travlr Getaways Coral Resort",
+    "perPerson": "899",
     "image": "reef3.jpg",
-    "description": "Claire's Reef highlights bright water, active marine life, and a scenic route that works well for repeat visitors.",
+    "description": "Claire's Reef highlights bright water, active marine life, and a scenic route that works well for repeat visitors. Vulputate eget libero. In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis.",
     "body": "Vulputate eget libero. In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis."
   }
 ]
