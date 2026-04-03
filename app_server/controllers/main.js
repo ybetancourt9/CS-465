@@ -1,4 +1,11 @@
-const Trip = require('../models/travlr');
+const apiBaseUrl = 'http://localhost:3000/api';
+const tripsEndpoint = `${apiBaseUrl}/trips`;
+const options = {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json'
+  }
+};
 
 const renderPage = (res, viewName, options = {}) => {
   res.render(viewName, options)
@@ -13,20 +20,46 @@ module.exports.home = (_req, res) => {
 
 module.exports.travel = async (_req, res) => {
   try {
-    const trips = await Trip.find().sort({ start: 1 }).lean();
+    const response = await fetch(tripsEndpoint, options);
+
+    if (!response.ok) {
+      throw new Error(`API returned status ${response.status}`);
+    }
+
+    const json = await response.json();
+
+    if (!Array.isArray(json)) {
+      renderPage(res, 'travel', {
+        title: 'Travel - Travlr Getaways Website Template',
+        currentPage: 'travel',
+        trips: [],
+        message: 'Trip data was not returned in the expected format.'
+      })
+      return;
+    }
+
+    if (json.length === 0) {
+      renderPage(res, 'travel', {
+        title: 'Travel - Travlr Getaways Website Template',
+        currentPage: 'travel',
+        trips: [],
+        message: 'No trips are currently available.'
+      })
+      return;
+    }
 
     renderPage(res, 'travel', {
       title: 'Travel - Travlr Getaways Website Template',
       currentPage: 'travel',
-      trips
+      trips: json
     })
   } catch (error) {
-    console.error('Error loading trips from MongoDB:', error)
     res.status(500)
     renderPage(res, 'travel', {
       title: 'Travel - Travlr Getaways Website Template',
       currentPage: 'travel',
-      trips: []
+      trips: [],
+      message: error.message
     })
   }
 }

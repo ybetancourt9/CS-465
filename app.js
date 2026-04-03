@@ -1,8 +1,9 @@
 const express = require("express")
 const hbs = require("hbs")
 const path = require("path")
-require("./app_server/models/db")
+require("./app_api/models/db")
 const mainRouter = require("./app_server/routes/index")
+const apiRouter = require("./app_api/routes/index")
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -19,6 +20,7 @@ hbs.registerHelper("navClass", (currentPage, pageName, activeClass) => {
 })
 
 app.use(express.urlencoded({ extended: false }))
+app.use("/api", apiRouter)
 app.use("/", mainRouter)
 app.use(express.static(publicPath))
 
