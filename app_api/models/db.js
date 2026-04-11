@@ -4,14 +4,11 @@ const dbURI = `mongodb://${host}/travlr`;
 
 const readLine = require('readline');
 
-// Build the connection string and set the connection timeout.
-// timeout is in milliseconds.
 const connect = () => {
     setTimeout(() => mongoose.connect(dbURI, {
     }), 1000);
 }
 
-// Monitor connection events
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
 });
@@ -22,7 +19,6 @@ mongoose.connection.on('disconnected', () => {
     console.log('Mongoose disconnected');
 });
 
-// Windows specific listener
 if (process.platform === 'win32') {
     const r1 = readLine.createInterface({
         input: process.stdin,
@@ -33,35 +29,28 @@ if (process.platform === 'win32') {
     });
 }
 
-// Configure for Graceful Shutdown
 const gracefulShutdown = async (msg) => {
     await mongoose.connection.close();
     console.log(`Mongoose disconnected through ${msg}`);
 };
 
-// Event Listeners to process graceful shutdowns
-// Shutdown invoked by nodemon signal
 process.once('SIGUSR2', async () => {
     await gracefulShutdown('nodemon restart');
     process.kill(process.pid, 'SIGUSR2');
 });
 
-// Shutdown invoked by app termination
 process.on('SIGINT', async () => {
     await gracefulShutdown('app termination');
     process.exit(0);
 });
 
-// Shutdown invoked by container termination
 process.on('SIGTERM', async () => {
     await gracefulShutdown('app shutdown');
     process.exit(0);
 });
 
-// Make initial connection to DB
 connect();
 
-// Import Mongoose schema
 require('./travlr');
 
 module.exports = mongoose;

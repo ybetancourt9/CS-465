@@ -1,0 +1,77 @@
+<section class="page-card p-4 p-lg-5">
+  <div class="d-flex justify-content-between align-items-start gap-3 mb-4">
+    <div>
+      <p class="text-uppercase text-brand small fw-semibold mb-2">Trip Editor</p>
+      <h1 class="h2 mb-2">{{ heading }}</h1>
+      <p class="text-muted mb-0">
+        Update trip details here and save them back to the Express API and MongoDB.
+      </p>
+    </div>
+
+    <a class="btn btn-outline-secondary" routerLink="/trips">Back to Trips</a>
+  </div>
+
+  <div *ngIf="message" class="alert alert-warning">
+    {{ message }}
+  </div>
+
+  <div *ngIf="isLoading" class="alert alert-light border mb-0">
+    Loading trip details...
+  </div>
+
+  <form *ngIf="!isLoading" [formGroup]="tripForm" (ngSubmit)="saveTrip()" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label" for="code">Code</label>
+        <input id="code" type="text" class="form-control" formControlName="code">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="name">Name</label>
+        <input id="name" type="text" class="form-control" formControlName="name">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="length">Length</label>
+        <input id="length" type="text" class="form-control" formControlName="length">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="start">Start Date</label>
+        <input id="start" type="date" class="form-control" formControlName="start">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="resort">Resort</label>
+        <input id="resort" type="text" class="form-control" formControlName="resort">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="perPerson">Per Person Price</label>
+        <input id="perPerson" type="text" class="form-control" formControlName="perPerson">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label" for="image">Image File Name</label>
+        <input id="image" type="text" class="form-control" formControlName="image">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label" for="description">Description</label>
+        <textarea id="description" class="form-control" rows="4" formControlName="description"></textarea>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label" for="body">Body</label>
+        <textarea id="body" class="form-control" rows="4" formControlName="body"></textarea>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2 mt-4">
+      <button class="btn btn-primary" type="submit" [disabled]="isSaving">
+        {{ isSaving ? 'Saving...' : submitLabel }}
+      </button>
+      <a class="btn btn-outline-secondary" routerLink="/trips">Cancel</a>
+    </div>
+  </form>
+</section>

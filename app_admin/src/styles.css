@@ -1,0 +1,35 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(100, 181, 246, 0.18), transparent 34%),
+    linear-gradient(180deg, #f5fbff 0%, #e8f3f8 100%);
+  color: #173042;
+}
+
+.page-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(11, 31, 42, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: 0 22px 40px rgba(13, 44, 61, 0.08);
+}
+
+.btn-primary {
+  background-color: #0b6e88;
+  border-color: #0b6e88;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #09566a;
+  border-color: #09566a;
+}
+
+.text-brand {
+  color: #0b6e88;
+}

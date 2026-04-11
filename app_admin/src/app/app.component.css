@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-nav {
+  background: linear-gradient(135deg, #164863 0%, #0b1f2a 100%);
+}
+
+.nav-link {
+  border-radius: 999px;
+  padding-inline: 0.95rem;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
