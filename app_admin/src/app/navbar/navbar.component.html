@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark border-bottom shadow-sm app-nav">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" routerLink="/trips">{{ title }}</a>
+
+    <div class="navbar-nav gap-lg-2 flex-row">
+      <a
+        class="nav-link"
+        routerLink="/trips"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Trips
+      </a>
+
+      <a
+        *ngIf="isLoggedIn()"
+        class="nav-link"
+        routerLink="/trips/new"
+        routerLinkActive="active">
+        Add Trip
+      </a>
+    </div>
+
+    <div class="navbar-nav ms-auto gap-lg-2 flex-row align-items-center">
+      <span *ngIf="isLoggedIn()" class="nav-link disabled text-light opacity-75">
+        {{ currentUserName() }}
+      </span>
+
+      <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login" routerLinkActive="active">
+        Log In
+      </a>
+
+      <a *ngIf="isLoggedIn()" class="nav-link logout-link" href="" (click)="logout(); $event.preventDefault()">
+        Log Out
+      </a>
+    </div>
+  </div>
+</nav>

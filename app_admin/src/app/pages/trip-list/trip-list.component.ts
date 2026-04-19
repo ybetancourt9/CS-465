@@ -3,6 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TripCardComponent } from '../../components/trip-card/trip-card.component';
 import { Trip } from '../../models/trip';
+import { AuthenticationService } from '../../services/authentication.service';
 import { TripDataService } from '../../services/trip-data.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { TripDataService } from '../../services/trip-data.service';
   styleUrl: './trip-list.component.css'
 })
 export class TripListComponent implements OnInit {
+  private readonly authenticationService = inject(AuthenticationService);
   private readonly tripDataService = inject(TripDataService);
 
   trips: Trip[] = [];
@@ -67,5 +69,9 @@ export class TripListComponent implements OnInit {
 
   trackByCode(_index: number, trip: Trip): string {
     return trip.code;
+  }
+
+  isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 }

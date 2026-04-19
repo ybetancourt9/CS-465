@@ -21,7 +21,7 @@
 
     <p class="card-text mb-0">{{ trip.description }}</p>
 
-    <div class="mt-auto d-flex gap-2">
+    <div *ngIf="isLoggedIn()" class="mt-auto d-flex gap-2">
       <a class="btn btn-primary btn-sm" [routerLink]="['/trips', trip.code, 'edit']">Edit</a>
       <button class="btn btn-outline-danger btn-sm" type="button" (click)="onDelete()">Delete</button>
     </div>

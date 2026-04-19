@@ -8,7 +8,7 @@
       </p>
     </div>
 
-    <a class="btn btn-primary align-self-start align-self-lg-center" routerLink="/trips/new">
+    <a *ngIf="isLoggedIn()" class="btn btn-primary align-self-start align-self-lg-center" routerLink="/trips/new">
       Add Trip
     </a>
   </div>

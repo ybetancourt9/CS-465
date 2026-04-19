@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Trip } from '../../models/trip';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-trip-card',
@@ -11,6 +12,8 @@ import { Trip } from '../../models/trip';
   styleUrl: './trip-card.component.css'
 })
 export class TripCardComponent {
+  private readonly authenticationService = inject(AuthenticationService);
+
   @Input({ required: true }) trip!: Trip;
   @Output() deleteTrip = new EventEmitter<Trip>();
 
@@ -20,5 +23,9 @@ export class TripCardComponent {
 
   onDelete(): void {
     this.deleteTrip.emit(this.trip);
+  }
+
+  isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 }

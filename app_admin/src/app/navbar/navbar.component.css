@@ -1,0 +1,35 @@
+.app-nav {
+  background: linear-gradient(135deg, #164863 0%, #0b1f2a 100%);
+}
+
+.app-nav .navbar-brand,
+.app-nav .nav-link {
+  color: #f8fbff;
+}
+
+.app-nav .navbar-brand {
+  font-weight: 700;
+}
+
+.app-nav .nav-link {
+  border-radius: 999px;
+  padding-inline: 0.95rem;
+}
+
+.app-nav .nav-link.disabled {
+  color: rgba(248, 251, 255, 0.82);
+}
+
+.app-nav .nav-link.active,
+.app-nav .nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.logout-link {
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
