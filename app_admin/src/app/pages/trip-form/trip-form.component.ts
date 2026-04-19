@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Trip } from '../../models/trip';
 import { TripDataService } from '../../services/trip-data.service';
 
@@ -14,9 +14,11 @@ import { TripDataService } from '../../services/trip-data.service';
 })
 export class TripFormComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
-  private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly tripDataService = inject(TripDataService);
+
+  @Input() isEditMode = false;
+  @Input() tripCode = '';
 
   readonly tripForm = this.formBuilder.nonNullable.group({
     code: ['', Validators.required],
@@ -30,22 +32,18 @@ export class TripFormComponent implements OnInit {
     body: ['', Validators.required]
   });
 
-  isEditMode = false;
   isLoading = false;
   isSaving = false;
   message = '';
   private originalTripCode = '';
 
   ngOnInit(): void {
-    const tripCode = this.route.snapshot.paramMap.get('tripCode');
-
-    if (!tripCode) {
+    if (!this.isEditMode || !this.tripCode) {
       return;
     }
 
-    this.isEditMode = true;
-    this.originalTripCode = tripCode;
-    this.loadTrip(tripCode);
+    this.originalTripCode = this.tripCode;
+    this.loadTrip(this.tripCode);
   }
 
   get heading(): string {
